@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChosmaWala</title>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/8f27d68390.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      *,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --after-content: "3";
+      }
+
+      body {
+        width: 100vw;
+        font-family: "Lato", sans-serif;
+      }
+      header {
+        position: fixed;
+        left: 150px;
+        right: 150px;
+        top: 150px;
+        height: 12vh;
+        background-color: rgb(24, 99, 143);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      h1 {
+        color: #fff;
+      }
+      .cart-box {
+        width: 26% !important;
+        position: absolute;
+        left: 72%;
+        top: 25%;
+        /* border:solid 1px blue; */
+        padding: 10px 20px;
+      }
+      h2 {
+        font-size: x-large;
+        padding: 15px 10px;
+      }
+
+      .cart-wrapper {
+        overflow-y: auto;
+        max-height: 350px;
+        width: 24vw;
+      }
+      .subtotal {
+        text-align: right;
+        padding: 5%;
+      }
+      .checkout,
+      .view-cart {
+        width: 95%;
+        text-align: center;
+        cursor: pointer;
+        background-color: brown;
+        font-size: large;
+        color: #fff;
+        margin: 10px auto;
+        padding: 10px 15px;
+      }
+      .view-cart {
+        background-color: #fff;
+        border: 2px solid brown;
+        color: brown;
+      }
+      .cart-icon {
+        text-align: right;
+      }
+
+      .cart-item {
+        display: grid;
+        grid-template-columns: 3fr 6fr 1fr;
+        padding: 5% 2%;
+        border-bottom: solid 1px lightgray;
+      }
+
+      .cart-item img {
+        width: 100%;
+      }
+      .cart-item .details {
+        padding-left: 10%;
+      }
+
+      .cart-item h3 {
+        text-align: left;
+        margin-bottom: 5%;
+      }
+
+      .cart-item .price {
+        display: block;
+        text-align: right;
+        margin-top: 35%;
+      }
+
+      .quantity {
+        display: block;
+        margin-top: 5%;
+      }
+
+      .fa-window-close {
+        color: brown;
+      }
+      .cancel {
+        text-align: right;
+      }
+      .whole-cart-window {
+        border: solid lightgray 1px;
+        border-top: none;
+        position: fixed;
+        top: 12vh;
+        background-color: #fff;
+        margin-right: 2%;
+      }
+
+      .hide {
+        display: none;
+      }
+      .non-empty::after {
+        content: var(--after-content);
+        font-size: 25px;
+        width: 25px;
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        top: -20px;
+        right: 20%;
+        background-color: red;
+        border-radius: 50%;
+      }
+
+      .card-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .card-item {
+        display: flex;
+        flex-direction: column;
+        min-width: 400px;
+        height: 600px;
+        justify-content: center;
+        align-items: center;
+      }
+      .card-item img {
+        width: 45%;
+      }
+      .card-item .details {
+        text-align: center;
+      }
+      .card-item p,
+      .card-item h3 {
+        margin-top: 10px;
+      }
+      .card-item span {
+        display: block;
+        margin-top: 10px;
+      }
+      .add-to-cart-btn {
+        width: fit-content;
+        margin: auto;
+        /* margin-top:10px; */
+        padding: 10px 15px;
+        cursor: pointer;
+        background-color: brown;
+        border-radius: 3px;
+        font-size: large;
+        color: #fff;
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" class="sty" />
+    <script
+      src="https://kit.fontawesome.com/8f27d68390.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <section id="header">
+      <a href="#"
+        ><img src="img/logoA.jpg" width="250" height="70" alt=""
+      /></a> 
+
+      <div>
+        <ul id="navbar">
+          <li><a href="INDEX.HTML">Home</a></li>
+          <li><a href="Computer Glasses.html">Computerglass</a></li>
+          <li><a href="Sunglass.HTML">Sunglass</a></li>
+          <li>
+            <a href="Latest Designer Collection.html"
+              >Latest Designer Collection</a
+            >
+          </li>
+          <li><a href="lens.html">Lens</a></li>
+          <li>
+            <a href="contact.HTML">Contact us</a>
+          </li>
+          <li>
+            <a href="cart.HTML" class="active"
+              ><i class="far fa-shopping-bag"></i
+            ></a>
+          </li>
+          <li>
+            <a href="Account.html"><i class="fas fa-user-circle"></i></a>
+          </li>
+          <a href="#" id="close"><i class="far fa-times"></i></a>
+        </ul>
+      </div>
+
+      <!-- adding a hamberger menu to b responsive website-->
+      <div id="mobile">
+        <i id="bar" class="fas fa-outdent"></i>
+        <a href="cart.HTML"><i class="far fa-shopping-bag"></i></a>
+      </div>
+    </section>
+  
+  <body>
+    <header>
+      <h1>Shop Online</h1>
+      <div class="cart-box">
+        <div class="cart-icon">
+          <i class="fas fa-cart-arrow-down fa-2x non-empty"></i>
+        </div>
+        <div class="whole-cart-window hide">
+          <h2>Shopping Bag</h2>
+          <div class="cart-wrapper"></div>
+          <div class="subtotal">Subtotal: $0.00</div>
+          <div class="checkout">Checkout</div>
+          <div class="view-cart">View Cart</div>
+        </div>
+      </div>
+    </header>
+   </head>
+    <section class="shop-section">
+      <div class="card-wrapper">
+        <!-- item 1 -->
+        <div data-id="1" class="card-item">
+          <img src="img/s7.png" width="150" height="150" />
+          <div class="details">
+            <h3>Eyeglass-1</h3>
+            <p>
+              <span> </span>
+
+              <span class="price">Price: $30.50</span>
+              <span class="add-to-cart-btn">Add To Cart</span>
+            </p>
+          </div>
+        </div>
+        <!-- item 2 -->
+        <div data-id="2" class="card-item">
+          <img src="\img\pic2.png" width="150" height="150" />
+          <div class="details">
+            <h3>Eyeglass-2</h3>
+            <p>
+              <span> </span>
+
+              <span class="price">Price: $23.44</span>
+              <span class="add-to-cart-btn">Add To Cart</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- product 3 -->
+        <div data-id="3" class="card-item">
+          <img src="\img\pic3.png" width="150" height="150" />
+          <div class="details">
+            <h3>Eyeglass-3</h3>
+            <p>
+              <span> </span>
+
+              <span class="price">Price: $20.44</span>
+              <span class="add-to-cart-btn">Add To Cart</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- product 4 -->
+        <div data-id="4" class="card-item">
+          <img src="\img\pic4.png" width="150" height="150" />
+          <div class="details">
+            <h3>Eyeglass-4</h3>
+            <p>
+              <span> </span>
+
+              <span class="price">Price: $29.44</span>
+              <span class="add-to-cart-btn">Add To Cart</span>
+            </p>
+          </div>
+        </div>
+        <!-- product 5 -->
+        <div data-id="5" class="card-item">
+          <img src="\img\pic5.png" width="150" height="150" />
+          <div class="details">
+            <h3>Eyeglass-5</h3>
+            <p>
+              <span> </span>
+              <span class="price">Price: $23.00</span>
+              <span class="add-to-cart-btn">Add To Cart</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- product 6 -->
+        <div data-id="6" class="card-item">
+          <img src="\img\pic6.png" width="150" height="150" />
+          <div class="details">
+            <h3>Eyeglass-6</h3>
+            <p>
+              <span> </span>
+
+              <span class="price">Price: $23.40</span>
+              <span class="add-to-cart-btn">Add To Cart</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- product 7 -->
+        <div data-id="7" class="card-item">
+          <img src="img/s2.png" width="150" height="150" />
+          <div class="details">
+            <h3>Eyeglass-7</h3>
+            <p>
+              <span> </span>
+
+              <span class="price">Price: $35.44</span>
+              <span class="add-to-cart-btn">Add To Cart</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- product 8 -->
+        <div data-id="8" class="card-item">
+          <img src="\img\pic8.png" width="150" height="150" />
+          <div class="details">
+            <h3>Eyeglass-8</h3>
+            <p>
+              <span> </span>
+
+              <span class="price">Price: $22.44</span>
+              <span class="add-to-cart-btn">Add To Cart</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- product 9 -->
+
+        <div data-id="9" class="card-item">
+          <img src="\img\pic9.png" width="150" height="150" />
+          <div class="details">
+            <h3>Eyeglass-9</h3>
+            <p>
+              <span> </span>
+
+              <span class="price">Price: $25.44</span>
+              <span class="add-to-cart-btn">Add To Cart</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="img/logoA.jpg" width="300" height="100" />
+        <h4>Contact</h4>
+        <p><strong>Address:</strong>10 no Road,Block C,Bosundhora RA</p>
+        <p><strong>Phone</strong> +017 2222 6667/018 55555 998</p>
+        <p><strong>Hours:</strong>9:00 - 12:00,Mon-Sun</p>
+
+        <div class="follow">
+          <h4>Follow us</h4>
+          <div class="icon">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-pinterest"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <h4>About us</h4>
+        <a href="#">Our purpose</a>
+        <a href="#">Delivary Information</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms and Condition</a>
+      </div>
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">help</a>
+      </div>
+      <div class="col">
+        <h4>Payment</h4>
+        <p>Secure Payment gateway</p>
+        <img src="img/payment.png" width="200" />
+      </div>
+    </footer>
+    <script>
+      const cartIcon = document.querySelector(".fa-cart-arrow-down");
+      const wholeCartWindow = document.querySelector(".whole-cart-window");
+      wholeCartWindow.inWindow = 0;
+      /* const addToCartBtns = document.querySelectorAll('.add-to-cart-btn')
+addToCartBtns.forEach( (btn)=>{
+    btn.addEventListener('click', addItemFunction)
+}  ) */
+
+      cartIcon.addEventListener("mouseover", () => {
+        if (wholeCartWindow.classList.contains("hide"))
+          wholeCartWindow.classList.remove("hide");
+      });
+
+      cartIcon.addEventListener("mouseleave", () => {
+        //if(wholeCartWindow.classList.contains('hide'))
+        setTimeout(() => {
+          if (wholeCartWindow.inwindow === 0) {
+            wholeCartWindow.classList.add("hide");
+          }
+        }, 500);
+      });
+
+      wholeCartWindow.addEventListener("mouseover", () => {
+        wholeCartWindow.inWindow = 1;
+      });
+
+      wholeCartWindow.addEventListener("mouseleave", () => {
+        wholeCartWindow.inWindow = 0;
+        wholeCartWindow.classList.add("hide");
+      });
+    
+        
+    </script>
+    <script src="script1.js"></script>
+  </body>
+</html>

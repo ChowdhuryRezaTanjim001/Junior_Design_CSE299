@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Star Rating Form | CodingNepal</title> 
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> 
+
+    <link rel="stylesheet" href="style.css" class="sty" />
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+html,body{
+  
+  display: grid;
+  height: 100%;
+  place-items: center;
+  text-align: center;
+  background: hsl(0, 15%, 91%);
+}
+.container{
+  position: relative;
+  width: 400px;
+  background: #e45959;
+  padding: 20px 30px;
+  border: 1px solid #070707;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.container .post{
+  display: none;
+}
+.container .text{
+  font-size: 25px;
+  color: #faf5f5;
+  font-weight: 500;
+}
+.container .edit{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 16px;
+  color: #f0efef;
+  font-weight: 500;
+  cursor: pointer;
+}
+.container .edit:hover{
+  text-decoration: underline;
+}
+.container .star-widget input{
+  display: none;
+}
+.star-widget label{
+  font-size: 40px;
+  color: #444;
+  padding: 10px;
+  float: right;
+  transition: all 0.2s ease;
+}
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label{
+  color: #fd4;
+}
+input:checked ~ label{
+  color: #fd4;
+}
+input#rate-5:checked ~ label{
+  color: #fe7;
+  text-shadow: 0 0 20px #952;
+}
+#rate-1:checked ~ form header:before{
+  content: "I just hate it ðŸ˜ˆ";
+}
+#rate-2:checked ~ form header:before{
+  content: "I don't like it ðŸ˜•";
+}
+#rate-3:checked ~ form header:before{
+  content: "It is awesome ðŸ˜Š";
+}
+#rate-4:checked ~ form header:before{
+  content: "I just like it ðŸ˜ƒ";
+}
+#rate-5:checked ~ form header:before{
+  content: "I just love it  ðŸ˜";
+}
+.container form{
+  display: none;
+}
+input:checked ~ form{
+  display: block;
+}
+form header{
+  width: 100%;
+  font-size: 25px;
+  color: rgb(130, 255, 119);
+  font-weight: 500;
+  margin: 5px 0 20px 0;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+form .textarea{
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+}
+form .textarea textarea{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: #eee;
+  border: 1px solid #333;
+  background: #222;
+  padding: 10px;
+  font-size: 17px;
+  resize: none;
+}
+.textarea textarea:focus{
+  border-color: #444;
+}
+form .btn{
+  height: 45px;
+  width: 100%;
+  margin: 15px 0;
+}
+form .btn button{
+  height: 100%;
+  width: 100%;
+  border: 1px solid #444;
+  outline: none;
+  background: #222;
+  color: #999;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+form .btn button:hover{
+  background: #1b1b1b;
+}
+
+
+    </style>
+  </head>
+  <body>
+    
+    <section id="header">
+      <a href="#"
+        ><img src="img/logoA.jpg" width="250" height="100" alt=""
+      /></a>
+
+      <div>
+        <ul id="navbar">
+          <li><a href="INDEX.HTML">Home</a></li>
+          <li><a href="Computer Glasses.HTML">Computerglass</a></li>
+          <li><a href="Sunglass.HTML">Sunglass</a></li>
+          <li>
+            <a href="Latest Designer Collection.HTML"
+              >Latest Designer Collection</a
+            >
+          </li>
+          <li><a href="lens.html">Lens</a></li>
+          <li>
+            <a href="contact.HTML">Contact us</a>
+          </li>
+          <li>
+            <a href="cart.HTML"><i class="far fa-shopping-bag"></i></a>
+          </li>
+          <a href="#" id="close"><i class="far fa-times"></i></a>
+        </ul>
+      </div>
+      <!-- adding a hamberger menu to b responsive website-->
+      <div id="mobile">
+        <i id="bar" class="fas fa-outdent"></i>
+        <a href="cart.HTML"><i class="far fa-shopping-bag"></i></a>
+      </div>
+    </section>
+    
+    <body> 
+    
+    <div class="container"> 
+    
+    <div class="post"> 
+    
+    <div class="text">Thanks for rating us!</div> 
+    
+    <div class="edit">EDIT</div> 
+    
+    </div> 
+    
+    <div class="star-widget"> 
+    
+    <input type="radio" name="rate" id="rate-5"> 
+    
+    <label for="rate-5" class="fas fa-star"></label> 
+    
+    <input type="radio" name="rate" id="rate-4"> 
+    
+    <label for="rate-4" class="fas fa-star"></label> 
+    
+    <input type="radio" name="rate" id="rate-3"> 
+    
+    <label for="rate-3" class="fas fa-star"></label> 
+    
+    <input type="radio" name="rate" id="rate-2"> 
+    
+    <label for="rate-2" class="fas fa-star"></label> 
+    
+    <input type="radio" name="rate" id="rate-1"> 
+    
+    <label for="rate-1" class="fas fa-star"></label> 
+    
+    <form action="#"> 
+    
+    <header></header> 
+    
+    <div class="textarea"> 
+    
+    <textarea cols="30" placeholder="Describe your experience.."></textarea> 
+    
+    </div> 
+    
+    <div class="btn"> 
+    
+    <button type="submit">Post</button> 
+    
+    </div> 
+    
+    </form> 
+    
+    </div> 
+    
+    </div>
+
+    
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+          <h4>Sign up for to be a member</h4>
+          <p>
+            Get E-mail updates about our lastest shop and
+            <span>Special offers </span>
+          </p>
+        </div>
+        <form action="https://formspree.io/f/mrgvdvpb" method="POST" class="form">
+          <input
+            type="text"
+            name="email"
+            placeholder="your email address"
+            required
+          />
+          <button type="submit" class="normal">Send</button>
+        </form>
+      </section>
+  
+      <footer class="section-p1">
+        <div class="col">
+          <img class="logo" src="img/logoA.jpg" width="300" height="100" />
+          <h4>Contact</h4>
+          <p><strong>Address:</strong>10 no Road,Block C,Bosundhora RA</p>
+          <p><strong>Phone</strong> +017 2222 6667/018 55555 998</p>
+          <p><strong>Hours:</strong>9:00 - 12:00,Mon-Sun</p>
+  
+          <div class="follow">
+            <h4>Follow us</h4>
+            <div class="icon">
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-youtube"></i>
+              <i class="fab fa-pinterest"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <h4>About us</h4>
+          <a href="#">Our purpose</a>
+          <a href="#">Delivary Information</a>
+          <a href="#">Privacy policy</a>
+          <a href="#">Terms and Condition</a>
+        </div>
+        <div class="col">
+          <h4>My Account</h4>
+          <a href="#">Sign In</a>
+          <a href="#">View Cart</a>
+          <a href="#">My Wishlist</a>
+          <a href="#">help</a>
+        </div>
+        <div class="col">
+          <h4>Payment</h4>
+          <p>Secure Payment gateway</p>
+          <img src="img/payment.png" width="200" />
+        </div>
+      </footer>
+      <script >
+        const btn = document.querySelector("button");
+      const post = document.querySelector(".post");
+      const widget = document.querySelector(".star-widget");
+      const editBtn = document.querySelector(".edit");
+      btn.onclick = ()=>{
+        widget.style.display = "none";
+        post.style.display = "block";
+        editBtn.onclick = ()=>{
+          widget.style.display = "block";
+          post.style.display = "none";
+        }
+        return false;
+      }
+      </script>
+    </body>
+  </html>
